@@ -1,0 +1,11 @@
+#This message is used to send command to Herkulex
+# Position Move Command
+
+int8 id
+int8 led
+int16 playtime
+int16 targetposition
+int16 jogmode
+---
+string command 
+bool command_result

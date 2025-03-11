@@ -1,0 +1,11 @@
+#This message is used to send command to Herkulex
+# IJOG Position Move Command
+
+int8[]  id_arr
+int8[]  led_arr
+int16[] targetposition_arr
+int16[] playtime
+int16 total_axis
+---
+string command 
+bool command_result
