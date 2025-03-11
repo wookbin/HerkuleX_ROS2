@@ -1,5 +1,11 @@
 # HerkuleX_ROS2
-HerkuleX ROS2(jazzy) Package
+## HerkuleX ROS2(jazzy) Package
+
+
+--- Topic 
+- ID를 1번으로 설정한 HerkuleX 0602를 기준으로 설명합니다.
+- Info_RAM_ID1, Info_EEP_ID1
+
 
 ![Image](https://github.com/user-attachments/assets/b881dc5a-61f4-4cc8-9e27-f5fcf019069e)
 
