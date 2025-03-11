@@ -726,7 +726,7 @@ class HerkuleXNode : public rclcpp::Node
             std::bind(&HerkuleXNode::SJOG_Move_Command, this, std::placeholders::_1, std::placeholders::_2));
             
             IJOG_Move_service = create_service<herkulex::srv::HerkulexIjogMove>(
-                "SjogMove_cmd", 
+                "IjogMove_cmd", 
             std::bind(&HerkuleXNode::IJOG_Move_Command, this, std::placeholders::_1, std::placeholders::_2));
 
             AngleMove_service = create_service<herkulex::srv::HerkulexAngleMove>(
