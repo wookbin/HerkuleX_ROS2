@@ -7,17 +7,17 @@
 - Info_RAM_ID1, Info_EEP_ID1
 
 [service] 
-- Register_cmd
->> RAM_RegisterData_Read_All  
->> EEP_RegisterData_Read_All  
->> RAM_RegisterData_Read  
->> EEP_RegisterData_Read  
->> RAM_RegisterData_Write  
->> EEP_RegisterData_Write  
->> SERVO_ON  
->> SERVO_OFF  
->> BRAKE_ON  
->> ERROR_CLEAR  
+- Register_cmd : 아래 10개의 command를 선택하여 사용가능하며, 모델번호와 ID값을 input으로 사용합니다.
+>> RAM_RegisterData_Read_All: RAM의 모든 데이터 읽기  
+>> EEP_RegisterData_Read_All: EPP의 모든 데이터 읽기  
+>> RAM_RegisterData_Read: RAM의 특정 주소번지 읽기(Input에 주소 값 추가)  
+>> EEP_RegisterData_Read: EEP의 특정 주소번지 읽기(Input에 주소 값 추가)  
+>> RAM_RegisterData_Write: RAM 주소번지에 데이터 쓰기 (Input에 주소 값과 수정하는 데이터 값 추가)   
+>> EEP_RegisterData_Write: EEP 주소번지에 데이터 쓰기 (Input에 주소 값과 수정하는 데이터 값 추가)  
+>> SERVO_ON: 토크(Torque)ON   
+>> SERVO_OFF: 토크(Torque)OFF   
+>> BRAKE_ON: 토크(Torque)ON 자세 유지  
+>> ERROR_CLEAR: 에러 클리어  
 
 - PositionMove_cmd
 - VelocityMove_cmd
