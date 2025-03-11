@@ -7,6 +7,17 @@ Topic (ID를 1번으로 설정한 HerkuleX 0602를 기준으로 설명합니다.
 
 service 
 - Register_cmd
+>> RAM_RegisterData_Read_All
+>> EEP_RegisterData_Read_All
+>> RAM_RegisterData_Read
+>> EEP_RegisterData_Read
+>> RAM_RegisterData_Write
+>> EEP_RegisterData_Write
+>> SERVO_ON
+>> SERVO_OFF
+>> BRAKE_ON
+>> ERROR_CLEAR
+
 - PositionMove_cmd
 - VelocityMove_cmd
 - SjogMove_cmd
