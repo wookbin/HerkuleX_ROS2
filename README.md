@@ -20,9 +20,14 @@
 >> ERROR_CLEAR: 에러 클리어  
 
 - PositionMove_cmd
+>> 위치제어모드 (ADC카운트 값 기준으로 위치이동)   
 - VelocityMove_cmd
+>> 속도 제어모드 (ADC카운트 값 기준으로 속도제어)   
 - SjogMove_cmd
+
 - IjogMove_cmd
+
+  
 - AngleMove_cmd
 
 
