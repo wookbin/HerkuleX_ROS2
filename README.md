@@ -1,11 +1,12 @@
 # HerkuleX_ROS2
 ## HerkuleX ROS2(jazzy) Package
+### Model number: 0:DRS-0101, 1:DRS-0102, 2:DRS-0201, 3:DRS-0401, 4:DRS-0402, 5:DRS-0601, 6:DRS-0602 
 
 
-Topic (ID를 1번으로 설정한 HerkuleX 0602를 기준으로 설명합니다.)
+[Topic] (ID를 1번으로 설정한 HerkuleX 0602를 예시으로 설명합니다.)
 - Info_RAM_ID1, Info_EEP_ID1
 
-service 
+[service] 
 - Register_cmd
 >> RAM_RegisterData_Read_All  
 >> EEP_RegisterData_Read_All  
