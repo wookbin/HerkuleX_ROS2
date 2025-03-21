@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+<robot name="herkulex_pantilt" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Include all component files -->
+  <xacro:include filename="$(find herkulex_description)/urdf/materials.urdf.xacro" />
+  <!-- Define a number of dimensions using properties -->
+  <xacro:property name="PI" value="3.1415926" />
+
+  <!-- define joint -->
+  <link name="base"/>
+  <joint name="fixed" type="fixed">
+    <parent link="base"/>
+    <child link="link1"/>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="link1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_tilt_bottom.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+     	<material name="darkgrey"/>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_tilt_bottom.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      	<material name="darkgrey"/>
+    </visual>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <parent link="link1"/>
+    <child link="pen_module"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-3.14159" upper="3.14159" velocity="1.571"/>
+  </joint>
+
+  <link name="pen_module">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_module.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+     	<material name="grey"/>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_module.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      	<material name="grey"/>
+    </visual>
+  </link>
+  
+  <joint name="link2" type="fixed">
+    <parent link="pen_module"/>
+    <child link="tilt_module"/>
+  </joint>
+
+  <link name="tilt_module">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//tilt_module.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+     	<material name="grey"/>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//tilt_module.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      	<material name="grey"/>
+    </visual>
+  </link>
+  
+  <joint name="joint2" type="revolute">
+    <parent link="tilt_module"/>
+    <child link="pen_tilt_bracket"/>
+    <origin xyz="0 0 0.086" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-3.14159" upper="0.0872665" velocity="1.571"/>
+  </joint>
+
+  <link name="pen_tilt_bracket">
+    <collision>
+      <origin xyz="0 0 0.086" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_tilt_bracket.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+     	<material name="grey"/>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_tilt_bracket.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      	<material name="grey"/>
+    </visual>
+  </link>
+  
+  <joint name="cover" type="fixed">
+    <parent link="pen_module"/>
+    <child link="pen_tilt_cover"/>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="pen_tilt_cover">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_tilt_cover.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+     	<material name="darkgrey"/>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//pen_tilt_cover.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      	<material name="darkgrey"/>
+    </visual>
+  </link>
+  
+  
+  <joint name="eoc_camera_module" type="fixed">
+    <parent link="pen_tilt_bracket"/>
+    <child link="eoc_module"/>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="eoc_module">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//eoc_module.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+     	<material name="transparentblack"/>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://herkulex_description/meshes//eoc_module.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      	<material name="transparentblack"/>
+    </visual>
+  </link>
+
+  
+
+
+</robot>
+
