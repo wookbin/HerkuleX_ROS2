@@ -1,0 +1,7 @@
+#This message is used to send command to Herkulex
+# Pan module Angle(degree) Move Command
+
+float64 target_angle
+int16 playtime
+---
+bool command_result
