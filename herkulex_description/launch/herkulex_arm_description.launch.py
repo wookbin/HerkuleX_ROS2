@@ -18,7 +18,7 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         get_package_share_directory('herkulex_description'),
         'rviz',
-        'rviz_basic_settings.rviz'
+        'rviz_arm_settings.rviz'
     )
 
     # Robot State Publisher Node
