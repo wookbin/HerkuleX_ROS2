@@ -60,6 +60,8 @@ include_directories(
 add_executable(herkulex_node src/herkulex.cpp)
 add_executable(herkulex_0602_ex_node src/herkulex_0602_ex.cpp) #add...0602_ex
 add_executable(herkulex_pantilt_node src/herkulex_pantilt.cpp) #add...pantilt
+add_executable(herkulex_arm_master_node src/herkulex_arm_master.cpp) #add...herkulex_arm_master
+add_executable(herkulex_arm_slave_node src/herkulex_arm_slave.cpp) #add...herkulex_arm_slave
 
 # Set dependencies for the executable
 set(dependencies
@@ -78,12 +80,16 @@ set(dependencies
 ament_target_dependencies(herkulex_node ${dependencies})
 ament_target_dependencies(herkulex_0602_ex_node ${dependencies})#add...0602_ex
 ament_target_dependencies(herkulex_pantilt_node ${dependencies})#add...pantilt
+ament_target_dependencies(herkulex_arm_master_node ${dependencies})#add...herkulex_arm_master_node
+ament_target_dependencies(herkulex_arm_slave_node ${dependencies})#add...herkulex_arm_slave_node
 
 # Ensure message generation completes before building the node
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
 target_link_libraries(herkulex_node ${cpp_typesupport_target})
 target_link_libraries(herkulex_0602_ex_node ${cpp_typesupport_target})#add...0602_ex
 target_link_libraries(herkulex_pantilt_node ${cpp_typesupport_target})#add...pantilt
+target_link_libraries(herkulex_arm_master_node ${cpp_typesupport_target})#add...herkulex_arm_master_node
+target_link_libraries(herkulex_arm_slave_node ${cpp_typesupport_target})#add...herkulex_arm_slave_node
 
 # Link against the serial library manually
 target_link_libraries(herkulex_node serial)
@@ -94,6 +100,8 @@ install(TARGETS
   herkulex_node
   herkulex_0602_ex_node #add...0602_ex
   herkulex_pantilt_node #add...pantilt
+  herkulex_arm_master_node #add...herkulex_arm_master_node
+  herkulex_arm_slave_node #add...herkulex_arm_slave_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
