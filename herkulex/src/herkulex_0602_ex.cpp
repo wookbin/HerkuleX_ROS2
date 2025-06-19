@@ -63,12 +63,12 @@ class HerkuleX_0602_EX : public rclcpp::Node
             //     "joint_states", 10, std::bind(&HerkuleX_0602_EX::Joint_SubCallback, this, _1));
 
             //Client list///////////////////////////////////////////////////////////////////////////////////////
-		    Register_client = this->create_client<herkulex::srv::HerkulexRegisterCommand>("Register_cmd");
+	    Register_client = this->create_client<herkulex::srv::HerkulexRegisterCommand>("Register_cmd");
             AngleMove_client = this->create_client<herkulex::srv::HerkulexAngleMove>("AngleMove_cmd");
             
 
             //Timer
-            read_timer_ = this->create_wall_timer(std::chrono::milliseconds(30), std::bind(&HerkuleX_0602_EX::RegisterReadCallback, this));
+            read_timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&HerkuleX_0602_EX::RegisterReadCallback, this));
         }
 
         void HerkulexRegister_Callback(rclcpp::Client<herkulex::srv::HerkulexRegisterCommand>::SharedFuture future)
@@ -218,7 +218,7 @@ class HerkuleX_0602_EX : public rclcpp::Node
         //// timer//
         rclcpp::TimerBase::SharedPtr read_timer_;
         //// Client_Service/////////////////////////////////////////////////////////////////////////////////
-	    rclcpp::Client<herkulex::srv::HerkulexRegisterCommand>::SharedPtr Register_client;
+	rclcpp::Client<herkulex::srv::HerkulexRegisterCommand>::SharedPtr Register_client;
         rclcpp::Client<herkulex::srv::HerkulexAngleMove>::SharedPtr AngleMove_client;
         //// Publish
         rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_pub_;
@@ -234,17 +234,17 @@ class HerkuleX_0602_EX : public rclcpp::Node
 
 int main(int argc, char *argv[]) 
 {
-    rclcpp::init(argc, argv);
+    	rclcpp::init(argc, argv);
 
 	std::signal(SIGINT, signal_handler);
 	// Create a function for when messages are to be sent.
 	setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-    auto node = std::make_shared<HerkuleX_0602_EX>();
+    	auto node = std::make_shared<HerkuleX_0602_EX>();
 
 
 
-    rclcpp::spin(node);
+    	rclcpp::spin(node);
 
-    rclcpp::shutdown();
+    	rclcpp::shutdown();
     return 0;
 }
