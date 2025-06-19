@@ -80,7 +80,7 @@ class HerkuleX_PANTILT : public rclcpp::Node
             
 
             //Timer
-            read_timer_ = this->create_wall_timer(std::chrono::milliseconds(30), std::bind(&HerkuleX_PANTILT::RegisterReadCallback, this));
+            read_timer_ = this->create_wall_timer(std::chrono::milliseconds(5), std::bind(&HerkuleX_PANTILT::RegisterReadCallback, this));
         }
         
         //add function//
@@ -282,7 +282,7 @@ class HerkuleX_PANTILT : public rclcpp::Node
 				request->value = 1;
 				// Call the service
 				auto result = Register_client->async_send_request(request);
-				usleep(10000);
+				usleep(1000);
 			}
             
             publishJointStateAndTF();
