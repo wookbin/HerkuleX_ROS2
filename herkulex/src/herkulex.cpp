@@ -683,7 +683,7 @@ class HerkuleXNode : public rclcpp::Node
             /****************************************************************************************************************/
             //Publish/////////////////////////////////////////////////////////////////////////////////////////////
             string str_ram_pub;
-	        string str_eep_pub;
+	    string str_eep_pub;
             for(int i=0; i<m_iTotal_Axis; i++)
             {
                 str_ram_pub = "Info_RAM_ID_" + to_string(i+1);
@@ -694,6 +694,7 @@ class HerkuleXNode : public rclcpp::Node
                 
                 //error clear
                 Herkulex_ErrorClear(i+1);
+		usleep(1000);
             }
 
             //servo On Loop
@@ -701,6 +702,7 @@ class HerkuleXNode : public rclcpp::Node
             {
                 //servo On
                 Herkulex_Servo_Enable(i+1, 1);
+		usleep(1000);
             }
             
             //Subscribe///////////////////////////////////////////////////////////////////////////////////////////
