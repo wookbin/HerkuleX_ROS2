@@ -737,7 +737,7 @@ class HerkuleXNode : public rclcpp::Node
 
 
             //Timer
-            read_timer_ = this->create_wall_timer(std::chrono::milliseconds(5), std::bind(&HerkuleXNode::readSerialCallback, this));
+            read_timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&HerkuleXNode::readSerialCallback, this));
 
         }
 
