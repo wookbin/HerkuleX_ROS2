@@ -67,7 +67,7 @@ class HerkuleX_PANTILT : public rclcpp::Node
                 "Info_RAM_ID_2", 10, std::bind(&HerkuleX_PANTILT::RAM_SubCallback2, this, _1));
  
             //Client list///////////////////////////////////////////////////////////////////////////////////////
-	    Register_client = this->create_client<herkulex::srv::HerkulexRegisterCommand>("Register_cmd");
+	    	Register_client = this->create_client<herkulex::srv::HerkulexRegisterCommand>("Register_cmd");
             PositionMove_client = this->create_client<herkulex::srv::HerkulexPositionMove>("PositionMove_cmd");
             //Service list///////////////////////////////////////////////////////////////////////////////////////
             PanAngleMove_service = create_service<herkulex::srv::PanAngleMove>(
